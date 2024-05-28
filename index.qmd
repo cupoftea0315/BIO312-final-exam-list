@@ -1,0 +1,180 @@
+---
+title: "**BIO312 Final Exam List**"
+subtitle: "*Protein Structure and Function*"
+author:
+  - "[TC-tea](https://github.com/cupoftea0315){style='color:blue'}"
+date: "`r Sys.Date()`"
+date-format: "YYYY.MM.DD"
+output:
+  quarto::quarto_document:
+    default_output_format: html
+    code:
+      pandoc_args: ["-V", "lang=en"]
+    df_print: paged
+toc: true
+toc-location: left
+toc-depth: 4
+fontsize: 12pt
+fontfamily: Tahoma
+theme: default
+comments:
+  hypothesis: true
+---
+
+<head>
+  <!-- Set viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Set styles for light and dark mode -->
+  <style>
+    mark {
+      background-color: yellow;
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .light-code {
+      color: black;
+    }
+    .dark-code {
+      color: white;
+    }
+    .quarto-output pre:not([class*="language-"]) {
+      background-color: transparent;
+      color: inherit;
+    }
+    .quarto-output pre[class*="language-"] {
+      background-color: #F5F5F5;
+      color: black;
+    }
+    .dark-mode .quarto-output pre[class*="language-"] {
+      background-color: #2B2B2B;
+      color: white;
+    }
+    /* CSS for back-to-top button */
+    #back-to-top {
+      position: fixed;
+      bottom: 10px;
+      right: 22px;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      text-decoration: none;
+    }
+    /* CSS for light/dark mode toggle button */
+    #myBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+      background-color: lightgray;
+    }
+    #myBtn:before {
+      content: "☀";
+    }
+    .dark-mode #myBtn:before {
+      content: "🌙";
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Button to toggle light/dark mode -->
+  <button id="myBtn" onclick="myFunction()"></button>
+  <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+      var codeBlocks = document.querySelectorAll(".quarto-output pre[class*='language-']");
+      codeBlocks.forEach(function(block) {
+        block.classList.toggle("light-code");
+        block.classList.toggle("dark-code");
+      });
+    }
+  </script>
+  <!-- Button to scroll back to top of page -->
+<a href="#" id="back-to-top" title="Back to top">🚀</a>
+</body>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      fig.align = "center")
+Sys.setlocale("LC_TIME", "en_GB.UTF-8")
+```
+
+# **Website**
+- [ChatGPT](https://openai.com/index/chatgpt)<br>
+- [Kimi AI](https://kimi.moonshot.cn/)<br>
+- [Wolfram Alpha](https://www.wolframalpha.com)<br>
+- [Learning Mall](https://core.xjtlu.edu.cn)<br>
+- [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
+- [Jupyter Notebook](https://jupyter.org/try)
+
+# **Courseware**
+## Lecture
+- [Lecture 1](courseware/Lecture 1.pdf)
+- [Lecture 2-1](courseware/Lecture 2-1.pdf)
+- [Lecture 2-2](courseware/Lecture 2-2.pdf)
+- [Lecture 3](courseware/Lecture 3.pdf)
+- [Lecture 4](courseware/Lecture 4.pdf)
+- [Lecture 5-1](courseware/Lecture 5-1.pdf)
+- [Lecture 5-2](courseware/Lecture 5-2.pdf)
+- [Lecture 6-1](courseware/Lecture 6-1.pdf)
+- [Lecture 7+8](courseware/Lecture 7+8.pdf)
+- [Lecture 9](courseware/Lecture 9.pdf)
+- [Lecture 9-2](courseware/Lecture 9-2.pdf)
+- [Lecture 10-1](courseware/Lecture 10-1.pdf)
+- [Lecture 10-311](courseware/Lecture 10-311.pdf)
+- [Lecture 12](courseware/Lecture 12.pdf)
+- [Lecture 13](courseware/Lecture 13.pdf)
+- [Review](courseware/Review.pdf)
+
+## Exercise
+- [Coursework 1](courseware/CW1.pdf)
+- [Coursework 2](courseware/CW2.pdf)
+- [Tutorial 1](courseware/Tutorial 1.pdf)
+- [Tutorial 3](courseware/Tutorial 3.pdf)
+- [Tutorial 4](courseware/Tutorial 4.pdf)
+- [Tutorial 7+8](courseware/Tutorial 7+8.pdf)
+- [Tutorial 10](courseware/Tutorial 10.pdf)
+- [Tutorial of CWs](courseware/Tutorial of CWs.pdf)
+
+# **Code**
+## De Novo for M/Z plot
+<details>
+  <summary>Example of M/Z analysis</summary>
+  ![](images/yuxuan_tian.jpg)
+</details>
+```{python, eval=FALSE}
+# De Novo sequencing
+def find_matching_indices(data, values):
+    indices = []
+    for i in range(len(data)):
+        for j in range(i + 1, len(data)):
+            diff = abs(data[i] - data[j])
+            if any(abs(diff - value) < 5e-1 for value in values):  # 判断差值是否与给定数值接近
+                indices.append((i + 1, j + 1, diff))
+    return indices
+
+
+# M/Z峰值数据
+data = [175.12, 262.12, 274.19, 375.21, 446.23, 487.32, 602.32, 730.43, 859.45, 875.42, 916.49, 987.52, 1100.61,
+        1247.69, 1360.9]
+
+# 给定的数值
+values = [57.02147, 71.03712, 87.03203, 97.05277, 99.06842, 101.04768, 103.00919, 113.08407, 114.04293, 115.02695,
+          128.05858, 128.09497, 129.04260, 131.04049, 137.05891, 147.06842, 156.10112, 163.06333, 186.07932]
+
+# 计算差值并找到与给定数值相同的位置
+matching_indices = find_matching_indices(data, values)
+
+# 输出结果
+for index in matching_indices:
+    print(f"#{index[0]} - #{index[1]} = {index[2]:.2f}")
+```
+
