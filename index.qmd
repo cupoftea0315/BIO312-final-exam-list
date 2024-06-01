@@ -107,74 +107,223 @@ knitr::opts_chunk$set(echo = TRUE,
 Sys.setlocale("LC_TIME", "en_GB.UTF-8")
 ```
 
-# **Website**
-- [ChatGPT](https://openai.com/index/chatgpt)<br>
-- [Kimi AI](https://kimi.moonshot.cn/)<br>
-- [Wolfram Alpha](https://www.wolframalpha.com)<br>
-- [Learning Mall](https://core.xjtlu.edu.cn)<br>
-- [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
-- [Jupyter Notebook](https://jupyter.org/try)
+# **Tool**
+- [**ChatGPT**](https://openai.com/index/chatgpt)<br>
+- [**Kimi AI**](https://kimi.moonshot.cn/)<br>
+- [**Wolfram Alpha**](https://www.wolframalpha.com)<br>
+- [**Learning Mall**](https://core.xjtlu.edu.cn)<br>
+- [**Wikipedia**](https://en.wikipedia.org/wiki/Main_Page)
+- [**Jupyter Notebook**](https://jupyter.org/try)
+- [**Peptide mass calculator**](https://web.expasy.org/peptide_mass/)
+- [**DeepL**](https://www.deepl.com/translator)
 
 # **Courseware**
 ## Lecture
-- [Lecture 1](courseware/Lecture 1.pdf)
-- [Lecture 2-1](courseware/Lecture 2-1.pdf)
-- [Lecture 2-2](courseware/Lecture 2-2.pdf)
-- [Lecture 3](courseware/Lecture 3.pdf)
-- [Lecture 4](courseware/Lecture 4.pdf)
-- [Lecture 5-1](courseware/Lecture 5-1.pdf)
-- [Lecture 5-2](courseware/Lecture 5-2.pdf)
-- [Lecture 6-1](courseware/Lecture 6-1.pdf)
-- [Lecture 7+8](courseware/Lecture 7+8.pdf)
-- [Lecture 9](courseware/Lecture 9.pdf)
-- [Lecture 9-2](courseware/Lecture 9-2.pdf)
-- [Lecture 10-1](courseware/Lecture 10-1.pdf)
-- [Lecture 10-311](courseware/Lecture 10-311.pdf)
-- [Lecture 12](courseware/Lecture 12.pdf)
-- [Lecture 13](courseware/Lecture 13.pdf)
-- [Review](courseware/Review.pdf)
+- [**Lecture 1** (characterization of proteins)](courseware/Lecture 1.pdf)
+- [**Lecture 2.1** (identification of proteins in complex mixtures <sub>a mass spectrometry approach</sub>)](courseware/Lecture 2-1.pdf)
+- [**Lecture 2.2** (identification of proteins in complex mixtures <sub>a mass spectrometry approach</sub>)](courseware/Lecture 2-2.pdf)
+- [**Lecture 3** (bottom-up proteomics and top-down proteomics)](courseware/Lecture 3.pdf)
+- [**Lecture 4** (quantitative mass spectrometry-based proteomics)](courseware/Lecture 4.pdf)
+- [**Lecture 5.1** (protein post translational modifications)](courseware/Lecture 5-1.pdf)
+- [**Lecture 5.2** (protein post translational modifications)](courseware/Lecture 5-2.pdf)
+- [**Lecture 6** (targeted proteomics)](courseware/Lecture 6-1.pdf)
+- [**Lecture 7+8** (protein folding and unfolding)](courseware/Lecture 7+8.pdf)
+- [**Lecture 9.1** (X-ray crystallography)](courseware/Lecture 9.pdf)
+- [**Lecture 9.2** (X-ray crystallography)](courseware/Lecture 9-2.pdf)
+- [**Lecture 10.1** (nuclear magnetic resonance (NMR) spectroscopy)](courseware/Lecture 10-1.pdf)
+- [**Lecture 10.2** (nuclear magnetic resonance (NMR) spectroscopy)](courseware/Lecture 10-311.pdf)
+- [**Lecture 12** (protein modeling)](courseware/Lecture 12.pdf)
+- [**Lecture 13** (relating structure to function)](courseware/Lecture 13.pdf)
+- [**Review**](courseware/Review.pdf)
 
 ## Exercise
-- [Coursework 1](courseware/CW1.pdf)
-- [Coursework 2](courseware/CW2.pdf)
-- [Tutorial 1](courseware/Tutorial 1.pdf)
-- [Tutorial 3](courseware/Tutorial 3.pdf)
-- [Tutorial 4](courseware/Tutorial 4.pdf)
-- [Tutorial 7+8](courseware/Tutorial 7+8.pdf)
-- [Tutorial 10](courseware/Tutorial 10.pdf)
-- [Tutorial of CWs](courseware/Tutorial of CWs.pdf)
+- [**Coursework 1**](courseware/CW1.pdf)
+- [**Coursework 2**](courseware/CW2.pdf)
+- [**Tutorial 1**](courseware/Tutorial 1.pdf)
+- [**Tutorial 3**](courseware/Tutorial 3.pdf)
+- [**Tutorial 4**](courseware/Tutorial 4.pdf)
+- [**Tutorial 7+8**](courseware/Tutorial 7+8.pdf)
+- [**Tutorial 10**](courseware/Tutorial 10.pdf)
+- [**Tutorial of CWs**](courseware/Tutorial of CWs.pdf)
 
 # **Code**
 ## De Novo for M/Z plot
 <details>
   <summary>Example of M/Z analysis</summary>
   ![](images/yuxuan_tian.jpg)
+  ![](images/amino acids mass table.jpg)
 </details>
-```{python, eval=FALSE}
+```{python}
 # De Novo sequencing
 def find_matching_indices(data, values):
     indices = []
     for i in range(len(data)):
         for j in range(i + 1, len(data)):
             diff = abs(data[i] - data[j])
-            if any(abs(diff - value) < 5e-1 for value in values):  # 判断差值是否与给定数值接近
+            if any(abs(diff - value) < 5e-1 for value in values):  # determine the difference
                 indices.append((i + 1, j + 1, diff))
     return indices
-
-
-# M/Z峰值数据
+  
+# M/Z peak data
 data = [175.12, 262.12, 274.19, 375.21, 446.23, 487.32, 602.32, 730.43, 859.45, 875.42, 916.49, 987.52, 1100.61,
         1247.69, 1360.9]
-
-# 给定的数值
+        
+# Mass of amino acids
 values = [57.02147, 71.03712, 87.03203, 97.05277, 99.06842, 101.04768, 103.00919, 113.08407, 114.04293, 115.02695,
           128.05858, 128.09497, 129.04260, 131.04049, 137.05891, 147.06842, 156.10112, 163.06333, 186.07932]
-
-# 计算差值并找到与给定数值相同的位置
+          
+# Calculate the difference and find the same position as the given value
 matching_indices = find_matching_indices(data, values)
 
-# 输出结果
+# Results
 for index in matching_indices:
     print(f"#{index[0]} - #{index[1]} = {index[2]:.2f}")
 ```
 
+## Molecular weight of mass spectrum
+<details>
+  <summary>Example of mass spectrum</summary>
+  ![](images/mass spectrum.png)
+</details>
+```{python}
+# Calculate the charge (19+ 18+ 17+ 16+ 15+)
+z18 = (3212.1-1.0078)/(3390.4-3212.1)
+z18
+# Mass of protein A
+mA = ((12*2128.1-12)+(11*2321.5-11)+(10*2553.5-10)+(9*2837.1-9))/4
+mA
+# Mass of AB complex
+mAB = ((19*3212.1-19)+(18*3390.4-18)+(17*3589.8-17)+(16*3814.1-16)+(15*4068.3-15))/5
+mAB
+```
+
+# **Past exam paper**
+## BIO312 final exam (2022-2023)
+### Question 1
+<details>
+  <summary>**Q1**: 2D-DIGE gel & MS spectrometry</summary>
+  ![](images/BIO312 final exam q1 (2022-2023).jpg)
+</details>
+Solution:
+
+1. They have different PH levels, and Mass Spectrometry technology can be used to separate these three proteins.
+2. Steps:
+   - Excise the protein spots from the gel.
+   - Digest the proteins into peptides using trypsin.
+   - Extract and purify the peptides from the gel pieces.
+   - Ionize the peptides using techniques like Electrospray Ionization (ESI) or Matrix-Assisted Laser Desorption/Ionization (MALDI).
+   - Analyze the peptides using a Mass Spectrometer to obtain their mass-to-charge ratios (m/z).
+   - Select the peptides of interest for fragmentation.
+   - Fragmentize the selected peptides using Collision-Induced Dissociation (CID) or Higher Energy Collisional Dissociation (HCD).
+   - Analyze the resulting fragment ions to identify characteristic signs of phosphorylation, such as loss of the phosphate group (e.g., -H3PO4).
+   - Use bioinformatics tools to match the peptide sequences and confirm the presence of phosphorylated tyrosine residues.
+
+### Question 2
+<details>
+  <summary>**Q2**: MS spectrum</summary>
+  ![](images/BIO312 final exam q2 (2022-2023).jpg)
+</details>
+Solution:
+
+1. (681.45*2)-2=1360.9
+2. D+P | I+V | L+V
+3. Same as the CW1 q1, [N F I/L A G E Q/K D X X V R]{style="color:red"} (XX could be NV, VN, RG, GR).
+
+### Question 3
+<details>
+  <summary>**Q3**: MS and MS/MS spectra</summary>
+  ![](images/BIO312 final exam q3 (2022-2023).jpg)
+</details>
+Solution:
+
+1. m/z=693.1 & m/z=1422.0
+2. Steps:
+   - Perform Spike-In Experiments: Introduce a known quantity of the NHL1 peptide into the sample to confirm that the selected transitions are detectable and accurately quantify the peptide.
+   - Optimize SRM Parameters: Adjust the collision energy and other SRM settings to ensure the selected transitions produce the most intense and specific signals.
+   - Analyse MS/MS Spectra: Confirm that the selected transitions match the expected fragment ions by comparing the experimental spectra to theoretical predictions or database entries.
+   - Evaluate Reproducibility: Assess the consistency of the transitions across multiple runs to ensure they are reliable for quantification purposes.
+   - Check for Cross-Contamination: Ensure that the transitions are unique to the NHL1 peptide and not shared with other peptides that could lead to false positives.
+3. Triple quadrupole mass spectrometer is typically used for SRM assays due to its ability to selectively monitor specific peptide transitions.
+4. List:
+   - Data-Dependent Acquisition (DDA): To identify and quantify peptides without prior knowledge of the sample composition.
+   - Data-Independent Acquisition (DIA): An unbiased approach that captures a wide range of peptides for comprehensive analysis.
+   - Isobaric Tagging: Such as tandem mass tag (TMT) or isobaric tags for relative and absolute quantitation (iTRAQ), for multiplexed comparative proteomics.
+   - Western Blot: A gel-based method to confirm protein expression levels.
+   - Enzyme-Linked Immunosorbent Assay (ELISA): For quantitative analysis of specific proteins using antibodies.
+   - Peptide Enrichment Techniques: Such as immunoprecipitation or affinity chromatography, to selectively enrich and quantify target peptides.
+
+### Question 4
+<details>
+  <summary>**Q4**: X-ray Crystallography & NMR Spectroscopy</summary>
+  ![](images/BIO312 final exam q4 (2022-2023).jpg)
+</details>
+Solution:
+
+- X-ray Crystallography Limitations:
+   - Crystal Dependency: Requires high-quality crystals that are not always achievable.
+   - Radiation Sensitivity: Susceptible to radiation damage affecting the protein structure.
+   - Static Structure: Captures a single conformation, missing dynamic aspects.
+- NMR Spectroscopy Limitations:
+   - Size Restriction: Limited to smaller proteins due to spectral complexity.
+   - Sensitivity Issues: Requires larger sample amounts and longer times.
+   - Structural Detail: Provides less detailed structural information compared to X-ray crystallography.
+
+### Question 5
+<details>
+  <summary>**Q5**: CD spectrum</summary>
+  ![](images/BIO312 final exam q5 (2022-2023).jpg)
+</details>
+Solution:
+
+1. **A**, 1BRR protein is basically composed of alpha-helix and beta-sheets, this structure generally present a negative peak around 218 nm and a positive peak around 195 nm in the CD spectrum.
+2. **E**, Urea is a denaturant that disrupts the non-covalent interactions that stabilize protein structure. If the protein were treated with 8 M urea, it would expect to cause a loss of the characteristic secondary structure peaks, shifting towards a spectrum, which is typically a weak and featureless spectrum with a minimum around 200 nm.
+3. In the absence of ligands, mutant would have fewer alpha-helix and beta-sheets than wild type. After the addition of ligands, both alpha-helix and beta-sheet of wild type would drastically decrease, but mutant beta-sheet would be more affected at this time.
+
+### Question 6
+<details>
+  <summary>**Q6**: Ramachandran plot</summary>
+  ![](images/BIO312 final exam q6 (2022-2023).jpg)
+</details>
+Solution:
+
+- The Ramachandran plot is essential as it evaluates the steriochemical quality of a protein structure by plotting the phi (φ) and psi (ψ) backbone dihedral angles. It helps identify if the protein's backbone conforms to allowed regions based on known protein geometries, ensuring the model's accuracy.
+- It turns out that the enzyme in Plot B has a well-defined conformation and the crystallography data is of higher quality.
+   - Plot A: The points are scattered and many are outside the favored red region, indicating potential issues with the protein model's accuracy. This dispersion could be due to structural errors, poor data quality, or the presence of multiple conformations.
+   - Plot B: The points are predominantly within the favored red region, suggesting a high-quality protein model with correct backbone geometry and fewer structural anomalies.
+
+### Question 7
+<details>
+  <summary>**Q7**: Surface Plasmon Resonance (SPR)</summary>
+  ![](images/BIO312 final exam q7 (2022-2023).jpg)
+</details>
+Solution:
+
+1. $$K_i=\frac{koff}{kon}$$
+   - Association Rate ($kon$): The initial slope of the binding phase is proportional to the association rate constant.
+   - Dissociation Rate ($koff$): The slope of the dissociation phase is related to the dissociation rate constant.
+   - Equilibrium Binding Affinity ($K_D$ or $K_i$): The affinity can be calculated using the ratio $koff$/$kon$.
+2. **Inhibitor C**, the $koff$ is much more smaller than $kon$, so $K_i$ can be 0.5 nM.
+3. **Inhibitor B**, the $koff$ is relatively high, so according to $K_i=\frac{koff}{kon}$ we can get the $K_i$ of B is relatively higher than others.
+4. For chronic diseases, an inhibitor with a high affinity (low K value) is desirable to maintain therapeutic levels with less frequent dosing. **Inhibitor C, with the lowest $K$ value (0.5 nM), would be the most suitable.** It would likely provide a longer duration of action and potentially fewer side effects due to its high binding affinity, making it ideal for consistent management of conditions like epilepsy.
+
+## BIO312 final exam (2021-2022)
+### Question 1
+<details>
+  <summary>**Q1**:</summary>
+  ![](images/BIO312 final exam q1 (2021-2022).jpg)
+</details>
+Solution:
+
+
+
+
+
+
+
+
+
+
+# [SessionInfo]{style="color:green"}
+```{r, echo=FALSE}
+sessionInfo()
+```
