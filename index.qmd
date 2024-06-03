@@ -139,12 +139,12 @@ Sys.setlocale("LC_TIME", "en_GB.UTF-8")
 ## Exercise
 - [**Coursework 1**](courseware/CW1.pdf)
 - [**Coursework 2**](courseware/CW2.pdf)
-- [**Tutorial 1**](courseware/Tutorial 1.pdf)
-- [**Tutorial 3**](courseware/Tutorial 3.pdf)
-- [**Tutorial 4**](courseware/Tutorial 4.pdf)
-- [**Tutorial 7+8**](courseware/Tutorial 7+8.pdf)
-- [**Tutorial 10**](courseware/Tutorial 10.pdf)
-- [**Tutorial of CWs**](courseware/Tutorial of CWs.pdf)
+- [**Tutorial 1** (protein separation)](courseware/Tutorial 1.pdf)
+- [**Tutorial 3** (MS spectrum interpretation)](courseware/Tutorial 3.pdf)
+- [**Tutorial 4** (quantification methods in proteomics)](courseware/Tutorial 4.pdf)
+- [**Tutorial 7+8** (Protein folding)](courseware/Tutorial 7+8.pdf)
+- [**Tutorial 10** (nuclear magnetic resonance (NMR) spectroscopy)](courseware/Tutorial 10.pdf)
+- [**Tutorial of courseworks**](courseware/Tutorial of CWs.pdf)
 
 # **Code**
 ## De Novo for M/Z plot
@@ -309,19 +309,164 @@ Solution:
 ## BIO312 final exam (2021-2022)
 ### Question 1
 <details>
-  <summary>**Q1**:</summary>
-  ![](images/BIO312 final exam q1 (2021-2022).jpg)
+  <summary>**Q1**: MS1 spectrum & tandem mass spectrum</summary>
+  ![](images/BIO312 final exam q1 (2021-2022) (1).jpg)
+  ![](images/BIO312 final exam q1 (2021-2022) (2).jpg)
 </details>
 Solution:
 
+1. Mass of the modified peptide: 690.87 Da<br>Charge of this peptide: +2
+2. 
+3. De Novo sequencing: D V A I/L A A A I/L A V
 
+### Question 2
+<details>
+  <summary>**Q2**:</summary>
+  ![](images/BIO312 final exam q2 (2021-2022).jpg)
+</details>
+Solution:
 
+1. To address Researcher A's question efficiently, we can follow these steps:
+   - Size Exclusion Chromatography (SEC): Since Researcher A has already performed SEC and found the enzyme activity concentrated in the 30-50 kDa fraction, this step has effectively narrowed down the protein candidates.
+   - One-Dimensional Gel Electrophoresis (1D-PAGE): Next, apply 1D-PAGE to the 30-50 kDa fraction to further separate and purify the proteins. This will allow visualization of distinct protein bands, from which the band(s) of interest can be excised.
+   - Matrix-Assisted Laser Desorption/Ionization Time-of-Flight Mass Spectrometry (MALDI-TOF MS): Use the MALDI-TOF MS in reflectron mode to determine the exact mass of the proteins in the excised band(s). This method is highly accurate for protein mass determination.
+   - Tandem Quadrupole Time-of-Flight Mass Spectrometry (tandem Q-TOF MS): If additional information on protein identity and sequence is required, tandem Q-TOF MS can be employed. This instrument can provide fragmentation data that, when combined with a protein database, can lead to the identification of the protein.
+2. To assist Researcher B in identifying the synthetic peptide, we can use the following approach:
+   - Reverse-Phase High-Performance Liquid Chromatography (RP-HPLC): Researcher B has already utilized RP-HPLC to separate the peptide mixture. This step is based on hydrophobicity and has resulted in 56 fractions.
+   - Nanoflow HPLC System: To further purify and analyze the fractions, use the nanoflow HPLC system. This will increase the resolution and purity of the peptide, which is especially important given the complexity of the mixture.
+   - Tandem Quadrupole Time-of-Flight Mass Spectrometry (tandem Q-TOF MS): Couple the nanoflow HPLC directly to the tandem Q-TOF MS for online analysis. This setup allows for the real-time detection and identification of peptides as they elute from the HPLC column. The tandem MS capability will provide sequence information, which is crucial for identifying the synthetic peptide.
+   - MALDI-TOF MS: For the fractions that are suspected to contain the synthetic peptide based on the HPLC-MS/MS data, use MALDI-TOF MS to rapidly confirm the presence of the peptide by matching its mass to the known monoisotopic mass of 2689.2 Da.
 
+### Question 3
+<details>
+  <summary>**Q3**:</summary>
+  ![](images/BIO312 final exam q3 (2021-2022).jpg)
+</details>
+Solution:
 
+1. Serine (Ser, S), Threonine (Thr, T), and Tyrosine (Tyr, Y) are the primary amino acids that can be phosphorylated.
+2. To enrich phosphopeptides:
+   - Use immobilized metal affinity chromatography (IMAC) with metal ions like Fe³⁺ or Ga³⁺ to selectively bind phosphorylated peptides.
+   - Employ cation exchange chromatography to separate phosphorylated peptides based on their increased negative charge.
+   - Apply solid-phase extraction (SPE) to purify and concentrate phosphopeptides from the digest.
+3. Phosphopeptides often exhibit lower fragmentation efficiency in CID spectra due to the stabilizing effect of the phosphate group. This results in fewer and less intense fragment ions, making it challenging to pinpoint the exact site of phosphorylation within a peptide. The reduced fragmentation can lead to ambiguity in assigning the modification to a specific amino acid residue.
 
+### Question 4a
+<details>
+  <summary>**Q4a**:</summary>
+  ![](images/BIO312 final exam q4a (2021-2022).jpg)
+</details>
+Solution: 
 
+1. The observation likely indicates post-translational modifications (PTMs) of a protein in cancerous tissue, altering its molecular weight (MW) and isoelectric point (pI). Verification can be done through:
+   - Mass Spectrometry: To identify the protein and detect PTMs.
+   - Western Blot: Using specific antibodies to confirm protein identity.
+2. Biomarker Discovery Workflow:
+   - Sample Collection: Obtain normal and cancerous kidney tissues.
+   - Protein Extraction: Prepare protein samples for analysis.
+   - 2D DIGE: Separate proteins based on pI and MW.
+   - Image Analysis: Identify differentially expressed proteins.
+   - Protein Identification: Excise and digest protein spots for mass spectrometry.
+   - Bioinformatics: Analyze data to predict protein functions.
+   - Validation: Use Western blot or ELISA to confirm expression.
+   - Functional Analysis: Investigate biological roles of proteins.
+   - Clinical Correlation: Relate protein expression to patient data.
+   - Validation Studies: Validate potential biomarkers in larger cohorts.
 
+### Question 4b
+<details>
+  <summary>**Q4b**:</summary>
+  ![](images/BIO312 final exam q4b (2021-2022).jpg)
+</details>
+Solution:
 
+1. Fractionation Method:
+   - High-Resolution Gel Electrophoresis [Protein]: Such as 2D gel electrophoresis or Blue Native PAGE, to separate proteins based on their isoelectric point and molecular weight.
+   - Reversed-Phase Liquid Chromatography (RPLC) [Peptide]: To separate peptides based on their hydrophobicity.
+   - Hydrophilic Interaction Liquid Chromatography (HILIC) [Peptide]: To separate peptides based on their hydrophilicity.
+2. Workflow/Strategy for Absolute Quantification of AMPD Enzyme:
+   - Standard Preparation: Synthesize or obtain a set of isotopically labeled (heavy) AMPD peptides to serve as internal standards.
+   - Sample Preparation: Homogenize liver tissue from both control and high fructose diet-fed rats, followed by protein extraction.
+   - Protein Digestion: Digest the extracted proteins using a protease like trypsin to generate peptides.
+   - Peptide Fractionation:
+      - Use RPLC to fractionate peptides based on hydrophobicity.
+      - Employ HILIC to further separate hydrophilic peptides.
+   - LC-MS/MS Analysis: Analyze the fractions by liquid chromatography-tandem mass spectrometry (LC-MS/MS) to identify and quantify AMPD peptides.
+   - Internal Standard Addition: Spike the digested samples with the isotopically labeled AMPD peptides at known concentrations.
+   - Data Acquisition: Collect MS/MS data to identify and quantify both endogenous AMPD peptides and their labeled counterparts.
+   - Quantification: Use the peak area ratios of heavy to light peptides to calculate the absolute quantity of AMPD peptides in the samples.
+   - Bioinformatics Analysis: Employ software to process raw data, identify peptides, and perform quantitative analysis.
+   - Statistical Validation: Perform statistical analysis to validate the upregulation of AMPD in the high fructose diet group compared to the control.
+
+### Question 5
+<details>
+  <summary>**Q5**:</summary>
+  ![](images/BIO312 final exam q5 (2021-2022).jpg)
+</details>
+Solution:
+
+- Genome Analysis: Analyze the genome sequence of bacterium A to identify genes encoding for the secreted toxins responsible for B disease.
+- Protein Identification: Use bioinformatics tools to predict the open reading frames (ORFs) and identify potential toxin proteins.
+- Gene Cloning: Clone the identified toxin genes into an expression vector suitable for protein production in a host organism (e.g., E. coli or yeast).
+- Protein Expression: Express the recombinant toxin proteins in the host organism, ensuring proper folding and post-translational modifications if necessary.
+- Protein Purification: Purify the expressed proteins using techniques such as affinity chromatography, ion exchange chromatography, or gel filtration.
+- Immunogenicity Assessment: Test the purified proteins for their ability to induce an immune response using in vitro assays or animal models.
+- Adjuvant Selection: Select an appropriate adjuvant to enhance the immune response to the vaccine antigens.
+- Formulation Development: Formulate the vaccine by combining the purified proteins with the selected adjuvant to create a stable and effective vaccine formulation.
+- Preclinical Testing: Conduct extensive preclinical testing in animal models to evaluate the safety, efficacy, and immunogenicity of the vaccine.
+- Clinical Trials: Proceed with clinical trials in humans, starting with Phase I to assess safety, followed by Phase II to evaluate immunogenicity and optimal dosing, and Phase III for efficacy.
+
+### Question 6
+<details>
+  <summary>**Q6**:</summary>
+  ![](images/BIO312 final exam q6 (2021-2022).jpg)
+</details>
+Solution:
+
+1. Protein X is rich in alpha helix, and protein Y appears as a random coil.
+2. Reasons:
+   - 190 nm Region: The higher ellipticity in the combined spectrum (X+Y) compared to when both proteins are together (X:Y) at around 190 nm could indicate that the individual proteins have a higher beta-sheet content or are more aggregated when separate. This peak is often associated with the presence of beta-sheets or aggregated structures.
+   - 220 nm Region: The higher ellipticity in the X:Y spectrum compared to the combined individual spectra (X+Y) at around 220 nm suggests that when proteins X and Y are mixed together, there is either an increase in alpha-helical content or a stabilization of the alpha-helical structure. This could be due to a structural change upon interaction, or the formation of a complex that stabilizes the helices.
+3. The alpha-helical content of protein X may be reduced due to interaction with protein Y. Non-specific interactions such as electrostatic or hydrophobic forces might cause structural loosening in protein X.
+4. Several techniques can be used to study protein-protein or protein-ligand binding and determine their stoichiometry:
+   - Surface Plasmon Resonance (SPR): Measures changes in refractive index upon binding, providing real-time kinetics and binding stoichiometry.
+   - Isothermal Titration Calorimetry (ITC): Measures heat changes during binding, allowing for the determination of binding affinity and stoichiometry.
+   - Fluorescence Resonance Energy Transfer (FRET): Uses energy transfer between a donor and acceptor to study binding and proximity, which can indirectly provide stoichiometry.
+   - Analytical Ultracentrifugation: Monitors sedimentation behavior to infer binding and complex formation.
+
+### Question 7
+<details>
+  <summary>**Q7**:</summary>
+  ![](images/BIO312 final exam q7 (2021-2022).jpg)
+</details>
+Solution:
+
+1. The domain type of triose phosphate isomerase is the TIM barrel (also known as α/β-barrel). This structural motif consists of eight parallel beta-strands forming a barrel-like structure with alpha-helices running along the outside.
+2. Technique to Characterize Secondary Structure:
+   - Circular Dichroism (CD) Spectroscopy: To determine the protein's secondary structure content based on the differences in the way it interacts with circularly polarized light.
+   - Infrared (IR) Spectroscopy: Particularly Attenuated Total Reflectance (ATR)-FTIR, which can provide information about the secondary structure by measuring the amide bonds' vibrations.
+   - Nuclear Magnetic Resonance (NMR) Spectroscopy: If the protein is small enough or suitable isotopes are used, NMR can provide detailed structural information.
+3. Molecular replacement is used to solve the structure of triose phosphate isomerase because it is a method that allows the prediction of the three-dimensional structure of a protein when a similar protein's structure is already known. It involves placing a known structure (the search model) into the unknown density map and then refining its position.<br>
+An alternative method to solve a protein crystal structure is Ab initio phasing. When no similar structure is available, this method involves using the diffraction data to build an electron density map from scratch, often starting with small molecular fragments and building up the entire structure.
+
+### Question 8a
+<details>
+  <summary>**Q8a**:</summary>
+  ![](images/BIO312 final exam q8a (2021-2022).jpg)
+</details>
+Solution:
+
+Crystal mosaic spread, refers to the variation in orientation of small crystallites within a larger crystal. This results in a diffraction pattern where individual spots are broadened and their intensities are reduced due to the averaging effect of the slightly misaligned crystallites. Consequently, mosaicity can cause inaccurate X-ray intensity measurements because the overlapping and weakened spots make it challenging to precisely determine the position and intensity of each reflection, leading to errors in data analysis.
+
+### Question 8b
+<details>
+  <summary>**Q8b**:</summary>
+  ![](images/BIO312 final exam q8b (2021-2022).jpg)
+</details>
+Solution:
+
+NOSEY (Nuclear Overhauser Effect Spectroscopy) is an NMR technique that measures the Overhauser effect between nuclear spins to determine proximity relationships between atoms in a molecule. It provides distance constraints used to infer the 3D structure of proteins.<br>
+_(During a NOSEY experiment, the magnetization of a nucleus is transferred to a neighboring nucleus via the Overhauser effect. By measuring the intensity of these transferred signals, researchers can map out the network of spatially close atoms within the protein. This information is then used in conjunction with other NMR data to calculate the three-dimensional structure of the protein through computational methods such as molecular dynamics simulations or distance geometry calculations.)_
 
 # [SessionInfo]{style="color:green"}
 ```{r, echo=FALSE}
